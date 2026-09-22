@@ -13,7 +13,12 @@ Import our first dataset
 
 ```{r}
 litters_df = 
-  read_csv(file = "data_import_examples/FAS_litters.csv", skip = 0) #skip allows us to skip rows in the csv file
+  read_csv(
+    file = "data_import_examples/FAS_litters.csv",
+           na = c("", "NA", ".")
+           ) 
+
+#skip allows us to skip rows in the csv file
 
 litters_df = janitor::clean_names(litters_df)
 ```
@@ -22,7 +27,11 @@ Import our second dataset
 
 ```{r}
 pups_df=
-  read_csv(file = "data_import_examples/FAS_pups.csv", skip = 3) 
+  read_csv(
+    file = "data_import_examples/FAS_pups.csv", 
+    skip = 3,
+    na = c("", "NA", ".")
+    ) 
 
 pups_df = janitor::clean_names(pups_df)
 ```
