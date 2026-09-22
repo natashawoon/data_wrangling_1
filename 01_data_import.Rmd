@@ -3,3 +3,49 @@ title: "Natasha Woon"
 output: github_document
 ---
 
+This file is for doing data imports 
+
+```{r}
+library(tidyverse)
+```
+
+Import our first dataset
+
+```{r}
+litters_df = 
+  read_csv(file = "data_import_examples/FAS_litters.csv", skip = 0) #skip allows us to skip rows in the csv file
+
+litters_df = janitor::clean_names(litters_df)
+```
+
+Import our second dataset 
+
+```{r}
+pups_df=
+  read_csv(file = "data_import_examples/FAS_pups.csv", skip = 3) 
+
+pups_df = janitor::clean_names(pups_df)
+```
+
+## Look at the data 
+
+```{r}
+litters_df 
+pups_df
+```
+
+Head or tail 
+
+```{r}
+head(litters_df, 20) #this shows the first 20 rows
+
+tail(pups_df, 5) # this shows the last 5 rows
+```
+
+skimming 
+
+```{r}
+skimr::skim(pups_df) # prints an extended summary of what's going on #able to look at what is missing, what is complete, the mean, sd, outlines of a histogram
+```
+
+
